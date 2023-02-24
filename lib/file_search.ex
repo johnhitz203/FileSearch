@@ -1,18 +1,16 @@
 defmodule FileSearch do
   @moduledoc """
-  Documentation for `FileSearch`.
+  FileSearch is a module for searching for files by path
   """
 
   @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> FileSearch.hello()
-      :world
-
+  When give the a path the all function will return all nested files in that path that are not hidden
   """
-  def hello do
-    :world
+  def all(folder) do
+    Path.wildcard("#{folder}/**/*")
+  end
+
+  def by_extension(folder, extension) do
+    Path.wildcard("#{folder}/**/*.#{extension}")
   end
 end
